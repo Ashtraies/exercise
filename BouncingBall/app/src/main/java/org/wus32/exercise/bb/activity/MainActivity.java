@@ -3,11 +3,10 @@ package org.wus32.exercise.bb.activity;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
-import org.wu32.exercise.bb.R;
-import org.wus32.exercise.bb.test.TestCentre;
+import org.wus32.exercise.bb.view.DrawView;
 
 /**
- * 的时间
+ * Main
  *
  */
 public class MainActivity extends AppCompatActivity {
@@ -15,11 +14,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        TestCentre.showLog(this);
-
-
-
-
+        setContentView(new DrawView(this));
     }
 }
