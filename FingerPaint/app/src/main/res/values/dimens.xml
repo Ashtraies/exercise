@@ -1,0 +1,7 @@
+<resources>
+	<!-- Default screen margins, per the Android Design guidelines. -->
+	<dimen name="parent_layout_padding">3dp</dimen>
+	<dimen name="child_layout_margin">7dp</dimen>
+	<dimen name="main_palette_w">98dp</dimen>
+	<dimen name="color_rect_w_h">40dp</dimen>
+</resources>

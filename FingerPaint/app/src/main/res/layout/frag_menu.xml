@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/main_menu"
+	android:layout_alignParentBottom="true"
+	android:layout_marginBottom="@dimen/parent_layout_padding"
+	android:layout_width="@dimen/main_palette_w"
+	android:layout_height="wrap_content"
+	android:orientation="vertical">
+	<Button
+		android:id="@+id/menu_reset"
+		style="@style/MenuBtn"
+		android:background="@android:color/holo_blue_light"
+		android:text="@string/menu_reset"/>
+	<Button
+		android:id="@+id/menu_save"
+		style="@style/MenuBtn"
+		android:background="@android:color/holo_green_light"
+		android:text="@string/menu_save"/>
+	<Button
+		android:id="@+id/menu_exit"
+		style="@style/MenuBtn"
+		android:background="@android:color/holo_red_light"
+		android:text="@string/menu_exit"/>
+</LinearLayout>

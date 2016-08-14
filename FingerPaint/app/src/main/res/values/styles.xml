@@ -1,0 +1,26 @@
+<resources>
+	<style name="AppTheme" parent="Theme.AppCompat.DayNight.NoActionBar">
+		<!-- Customize your theme here. -->
+		<item name="colorPrimary">@color/colorPrimary</item>
+		<item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+		<item name="colorAccent">@color/colorAccent</item>
+	</style>
+
+	<style name="ColorRect">
+		<item name="android:layout_width">@dimen/color_rect_w_h</item>
+		<item name="android:layout_height">@dimen/color_rect_w_h</item>
+		<item name="android:layout_marginTop">@dimen/child_layout_margin</item>
+		<item name="android:layout_marginLeft">@dimen/child_layout_margin</item>
+		<item name="android:clickable">true</item>
+		<item name="android:onClick">getColor</item>
+	</style>
+
+	<style name="ShapeRect" parent="@style/ColorRect">
+		<item name="android:onClick">selectShape</item>
+	</style>
+
+	<style name="MenuBtn" parent="@style/ColorRect">
+		<item name="android:layout_width">match_parent</item>
+		<item name="android:layout_marginRight">@dimen/parent_layout_padding</item>
+	</style>
+</resources>

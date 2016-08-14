@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:background="@color/colorPrimary"
+	android:padding="@dimen/parent_layout_padding"
+	tools:context=".activity.MainActivity">
+	<include layout="@layout/frag_palette"/>
+	<include layout="@layout/frag_shape"/>
+	<include layout="@layout/frag_menu"/>
+	<org.wus32.assessment.fp.view.MainCanvas
+		android:id="@+id/main_canvas"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_marginBottom="@dimen/parent_layout_padding"
+		android:layout_marginLeft="@dimen/parent_layout_padding"
+		android:layout_toRightOf="@+id/main_palette"
+		android:background="@android:color/white">
+	</org.wus32.assessment.fp.view.MainCanvas>
+</RelativeLayout>
