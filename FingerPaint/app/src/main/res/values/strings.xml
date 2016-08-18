@@ -1,10 +1,10 @@
 <resources>
 	<string name="app_name">Finger Paint</string>
 	<!--shape name -->
-	<string name="shape_name_rect">rect</string>
-	<string name="shape_name_circle">circle</string>
-	<string name="shape_name_triangle">triangle</string>
-	<string name="shape_name_star">star</string>
+	<string name="shape_name_square">SQUARE</string>
+	<string name="shape_name_circle">CIRCLE</string>
+	<string name="shape_name_triangle">TRIANGLE</string>
+	<string name="shape_name_star">STAR</string>
 	<!--btn tips -->
 	<string name="menu_reset">Reset</string>
 	<string name="menu_save">Save</string>

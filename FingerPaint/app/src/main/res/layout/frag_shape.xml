@@ -11,32 +11,27 @@
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
-		<View
+		<org.wus32.assessment.fp.view.shape.Square
 			style="@style/ShapeRect"
-			android:tag="@string/shape_name_rect"
-			android:background="@android:color/holo_green_light"/>
-		<View
-			style="@style/ShapeRect"
-			android:tag="@string/shape_name_rect"
-			android:background="@android:color/holo_green_light"/>
-		<View
+			android:tag="@string/shape_name_square"/>
+		<org.wus32.assessment.fp.view.shape.Circle
 			style="@style/ShapeRect"
 			android:tag="@string/shape_name_circle"
-			android:layout_marginBottom="@dimen/child_layout_margin"
-			android:background="@android:color/holo_green_dark"/>
+			android:layout_marginBottom="@dimen/child_layout_margin"/>
 	</LinearLayout>
 	<LinearLayout
 		android:layout_width="wrap_content"
 		android:layout_height="wrap_content"
 		android:orientation="vertical">
-		<View
+		<org.wus32.assessment.fp.view.shape.Triangle
 			style="@style/ShapeRect"
-			android:tag="@string/shape_name_triangle"
-			android:background="@android:color/holo_orange_dark"/>
+			android:tag="@string/shape_name_triangle"/>
+		<!--
 		<View
 			style="@style/ShapeRect"
 			android:tag="@string/shape_name_star"
 			android:layout_marginBottom="@dimen/child_layout_margin"
 			android:background="@android:color/holo_blue_bright"/>
+		-->
 	</LinearLayout>
 </LinearLayout>
