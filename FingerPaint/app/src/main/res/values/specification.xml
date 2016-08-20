@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<!-- square specification -->
+	<dimen name="square_length">60dp</dimen>
+	<!-- circle specification -->
+	<dimen name="circle_radius">30dp</dimen>
+	<!-- triangle specification -->
+	<dimen name="triangle_length">60dp</dimen>
+	<!-- star specification -->
+	<dimen name="star_length">30dp</dimen>
+	<!-- border width -->
+	<dimen name="stroke_width">2dp</dimen>
+	<!--default offset-->
+	<dimen name="offset">20dp</dimen>
+</resources>
