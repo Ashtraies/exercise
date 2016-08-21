@@ -34,4 +34,10 @@ public interface IShape {
    * @return type of shape
    */
   Type getType();
+
+  void setColor(int color);
+
+  void invalidate();
+
+  void setVisibility(int visibility);
 }

@@ -7,9 +7,26 @@
 	android:background="@color/colorPrimary"
 	android:padding="@dimen/parent_layout_padding"
 	tools:context=".activity.MainActivity">
-	<include layout="@layout/frag_palette"/>
 	<include layout="@layout/frag_shape"/>
+	<include layout="@layout/frag_palette"/>
 	<include layout="@layout/frag_menu"/>
+	<TextView
+		android:id="@+id/main_text"
+		android:layout_below="@+id/main_palette"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="@dimen/parent_layout_padding"
+		android:textColor="@android:color/white"
+		android:text="@string/main_curr_selected"/>
+	<org.wus32.assessment.fp.view.shape.Square
+		android:id="@+id/main_square"
+		style="@style/CurrSelected"/>
+	<org.wus32.assessment.fp.view.shape.Circle
+		android:id="@+id/main_circle"
+		style="@style/CurrSelected"/>
+	<org.wus32.assessment.fp.view.shape.Triangle
+		android:id="@+id/main_triangle"
+		style="@style/CurrSelected"/>
 	<org.wus32.assessment.fp.view.MainCanvas
 		android:id="@+id/main_canvas"
 		android:layout_width="match_parent"

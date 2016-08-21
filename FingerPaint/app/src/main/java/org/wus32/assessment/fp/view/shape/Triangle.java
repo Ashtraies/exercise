@@ -10,6 +10,7 @@ package org.wus32.assessment.fp.view.shape;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
@@ -35,6 +36,7 @@ public class Triangle extends AbstractShape {
 
   @Override
   protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
     Path path = new Path();
     path.moveTo(0,h);
     path.lineTo(w / 2,0);
@@ -51,6 +53,7 @@ public class Triangle extends AbstractShape {
     path.lineTo(x + triangleLength / 2,y + margin);
     path.close();
     canvas.drawPath(path,paint);
+    canvas.drawPath(path,getBorderPaint());
   }
 
   @Override

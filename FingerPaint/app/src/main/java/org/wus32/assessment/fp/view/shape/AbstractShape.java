@@ -25,6 +25,11 @@ public abstract class AbstractShape extends View implements IShape {
   protected Paint paint;
 
   /**
+   * Paint
+   */
+  protected Paint borderPaint;
+
+  /**
    * The width and height of the view
    */
   float w, h;
@@ -44,6 +49,8 @@ public abstract class AbstractShape extends View implements IShape {
    */
   float offset;
 
+  int color;
+
   public AbstractShape(Context context,AttributeSet attrs) {
     super(context,attrs);
     initSpecification(context);
@@ -52,6 +59,22 @@ public abstract class AbstractShape extends View implements IShape {
     paint.setStyle(Paint.Style.STROKE);
     paint.setStrokeWidth(strokeWidth);
     paint.setAntiAlias(true);
+    borderPaint = new Paint();
+    borderPaint.setAntiAlias(true);
+    borderPaint.setStyle(Paint.Style.STROKE);
+    borderPaint.setStrokeWidth(strokeWidth);
+    borderPaint.setColor(Color.BLACK);
+
+  }
+
+  @Override
+  protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
+    if(color == 0) {
+      color = Color.BLACK;
+      paint.setStyle(Paint.Style.STROKE);
+    }
+    paint.setColor(color);
   }
 
   /**
@@ -64,10 +87,13 @@ public abstract class AbstractShape extends View implements IShape {
     Resources res = context.getResources();
     strokeWidth = res.getDimension(R.dimen.stroke_width);
     squareLength = res.getDimension(R.dimen.square_length);
-    LogUtil.log(squareLength);
     circleRaduis = res.getDimension(R.dimen.circle_radius);
     triangleLength = res.getDimension(R.dimen.triangle_length);
     offset = res.getDimension(R.dimen.child_layout_margin);
+  }
+
+  Paint getBorderPaint() {
+    return borderPaint;
   }
 
   @Override
@@ -75,5 +101,20 @@ public abstract class AbstractShape extends View implements IShape {
     this.w = w;
     this.h = h;
     super.onSizeChanged(w,h,oldw,oldh);
+  }
+
+  @Override
+  public void setColor(int color) {
+    this.color = color;
+  }
+
+  @Override
+  public void invalidate() {
+    super.invalidate();
+  }
+
+  @Override
+  public void setVisibility(int visibility) {
+    super.setVisibility(visibility);
   }
 }

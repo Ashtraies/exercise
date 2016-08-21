@@ -4,8 +4,7 @@
 	android:id="@+id/main_shape"
 	android:layout_width="@dimen/main_palette_w"
 	android:layout_height="wrap_content"
-	android:layout_below="@+id/main_palette"
-	android:layout_alignParentLeft="true"
+	android:layout_alignParentStart="true"
 	android:orientation="horizontal">
 	<LinearLayout
 		android:layout_width="wrap_content"
@@ -26,12 +25,5 @@
 		<org.wus32.assessment.fp.view.shape.Triangle
 			style="@style/ShapeRect"
 			android:tag="@string/shape_name_triangle"/>
-		<!--
-		<View
-			style="@style/ShapeRect"
-			android:tag="@string/shape_name_star"
-			android:layout_marginBottom="@dimen/child_layout_margin"
-			android:background="@android:color/holo_blue_bright"/>
-		-->
 	</LinearLayout>
 </LinearLayout>

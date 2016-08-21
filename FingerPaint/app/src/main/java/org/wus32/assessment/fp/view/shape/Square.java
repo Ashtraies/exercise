@@ -11,10 +11,7 @@ package org.wus32.assessment.fp.view.shape;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Paint;
-import android.graphics.Rect;
 import android.util.AttributeSet;
-
-import org.wus32.assessment.fp.util.LogUtil;
 
 /**
  * Draw square
@@ -33,13 +30,21 @@ public class Square extends AbstractShape {
 
   @Override
   protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
     canvas.drawRect(0,0,w,h,paint);
   }
 
   @Override
   public void drawShapeWithCentre(float x,float y,Canvas canvas,Paint paint) {
-    canvas.drawRect(x - squareLength / 2,y - squareLength / 2,x + squareLength / 2,y + squareLength / 2,paint);
-    Rect r = new Rect();
+    canvas.drawRect(x - squareLength / 2,
+            y - squareLength / 2,
+            x + squareLength / 2,
+            y + squareLength / 2,paint);
+    canvas.drawRect(x - squareLength / 2,
+            y - squareLength / 2,
+            x + squareLength / 2,
+            y + squareLength / 2,getBorderPaint());
+
   }
 
   @Override

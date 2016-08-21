@@ -10,6 +10,7 @@ package org.wus32.assessment.fp.view.shape;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
@@ -30,12 +31,14 @@ public class Circle extends AbstractShape{
 
   @Override
   protected void onDraw(Canvas canvas) {
+    super.onDraw(canvas);
     canvas.drawCircle(w/2,h/2,w/2 - strokeWidth,paint);
   }
 
   @Override
   public void drawShapeWithCentre(float x,float y,Canvas canvas,Paint paint) {
     canvas.drawCircle(x,y,circleRaduis,paint);
+    canvas.drawCircle(x,y,circleRaduis,getBorderPaint());
   }
 
   @Override

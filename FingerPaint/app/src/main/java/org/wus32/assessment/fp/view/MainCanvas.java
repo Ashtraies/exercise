@@ -43,23 +43,6 @@ public class MainCanvas extends View {
     paint.setAntiAlias(true);
   }
 
-  public void drawSelected() {
-    if(shape == null) {
-      if(shapeColor == 0) {
-        shapeColor = Color.TRANSPARENT;
-      }
-      customCanvas.drawColor(shapeColor);
-    }else {
-      if(shapeColor == 0) {
-        shapeColor = Color.TRANSPARENT;
-      }
-      paint.setStyle(Paint.Style.FILL_AND_STROKE);
-      paint.setColor(shapeColor);
-      shape.drawShapeWithCentre(10,10,customCanvas,paint);
-    }
-    invalidate();
-  }
-
   @Override
   public boolean onTouchEvent(MotionEvent event) {
     if(shape != null) {
