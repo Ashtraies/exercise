@@ -35,16 +35,16 @@ public class Square extends AbstractShape {
   }
 
   @Override
-  public void drawShapeWithCentre(float x,float y,Canvas canvas,Paint paint) {
-    canvas.drawRect(x - squareLength / 2,
-            y - squareLength / 2,
-            x + squareLength / 2,
-            y + squareLength / 2,paint);
-    canvas.drawRect(x - squareLength / 2,
-            y - squareLength / 2,
-            x + squareLength / 2,
-            y + squareLength / 2,getBorderPaint());
-
+  public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
+    float l = squareLength * pressure;
+    canvas.drawRect(x - l / 2,
+            y - l / 2,
+            x + l / 2,
+            y + l / 2,paint);
+    canvas.drawRect(x - l / 2,
+            y - l / 2,
+            x + l / 2,
+            y + l / 2,getBorderPaint());
   }
 
   @Override

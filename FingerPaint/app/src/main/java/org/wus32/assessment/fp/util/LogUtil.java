@@ -17,10 +17,7 @@ import android.util.Log;
  */
 public class LogUtil {
 
-  public static void log(Object content) {
-    log(null,content);
-  }
-
+  @SuppressWarnings("unused")
   public static void log(Object context,Object content) {
     String tag = "FP";
     if(context != null) {
@@ -31,9 +28,5 @@ public class LogUtil {
     } else {
       Log.e(tag,content.toString());
     }
-  }
-
-  public static void main(String [] args) {
-    System.out.print(true);
   }
 }

@@ -22,10 +22,6 @@ import android.util.AttributeSet;
  */
 public class Triangle extends AbstractShape {
 
-  private float margin = (float)(Math.sqrt(3) / 6 * triangleLength);
-
-  private float high = (float)(Math.sqrt(3) / 2 * triangleLength);
-
   public Triangle(Context context,AttributeSet attrs) {
     super(context,attrs);
   }
@@ -46,11 +42,14 @@ public class Triangle extends AbstractShape {
   }
 
   @Override
-  public void drawShapeWithCentre(float x,float y,Canvas canvas,Paint paint) {
+  public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
+    float l = triangleLength * pressure;
+    float margin = (float)(Math.sqrt(3) / 6 * l);
+    float high = (float)(Math.sqrt(3) / 2 * l);
     Path path = new Path();
-    path.moveTo(x - triangleLength / 2,y + margin);
+    path.moveTo(x - l / 2,y + margin);
     path.lineTo(x,y - (high - margin));
-    path.lineTo(x + triangleLength / 2,y + margin);
+    path.lineTo(x + l / 2,y + margin);
     path.close();
     canvas.drawPath(path,paint);
     canvas.drawPath(path,getBorderPaint());

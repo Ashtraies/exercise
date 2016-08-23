@@ -13,17 +13,17 @@
 		<View
 			style="@style/ColorRect"
 			android:layout_marginTop="0dp"
-			android:background="@android:color/holo_red_dark"/>
+			android:background="@color/palette_red"/>
 		<View
 			style="@style/ColorRect"
-			android:background="@android:color/holo_blue_dark"/>
+			android:background="@color/palette_blue"/>
 		<View
 			style="@style/ColorRect"
-			android:background="@android:color/holo_purple"/>
+			android:background="@color/palette_purple"/>
 		<View
 			style="@style/ColorRect"
 			android:layout_marginBottom="@dimen/child_layout_margin"
-			android:background="@android:color/holo_green_dark"/>
+			android:background="@color/palette_green"/>
 	</LinearLayout>
 	<LinearLayout
 		android:layout_width="wrap_content"
@@ -32,16 +32,16 @@
 		<View
 			style="@style/ColorRect"
 			android:layout_marginTop="0dp"
-			android:background="@android:color/holo_orange_dark"/>
+			android:background="@color/palette_yellow"/>
 		<View
 			style="@style/ColorRect"
-			android:background="@android:color/holo_green_light"/>
+			android:background="@color/palette_pink"/>
 		<View
 			style="@style/ColorRect"
-			android:background="@android:color/darker_gray"/>
+			android:background="@color/palette_gray"/>
 		<View
 			style="@style/ColorRect"
 			android:layout_marginBottom="@dimen/child_layout_margin"
-			android:background="@android:color/holo_blue_bright"/>
+			android:background="@color/palette_light_blue"/>
 	</LinearLayout>
 </LinearLayout>

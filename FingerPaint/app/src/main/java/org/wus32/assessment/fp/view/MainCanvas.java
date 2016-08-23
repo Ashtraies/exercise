@@ -46,11 +46,12 @@ public class MainCanvas extends View {
   @Override
   public boolean onTouchEvent(MotionEvent event) {
     if(shape != null) {
+      LogUtil.log(this,event.getPressure() + "/" +event.getSize());
       float touchX = event.getX();
       float touchY = event.getY();
       //use custom canvas to draw
       paint.setColor(shapeColor);
-      shape.drawShapeWithCentre(touchX,touchY,customCanvas,paint);
+      shape.drawShapeWithCentre(touchX,touchY,event.getPressure(),customCanvas,paint);
       //call onDraw to draw custom bitmap whitin circle
       invalidate();
       //return false is the same

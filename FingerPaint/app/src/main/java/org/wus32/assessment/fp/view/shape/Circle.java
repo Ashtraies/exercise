@@ -36,9 +36,10 @@ public class Circle extends AbstractShape{
   }
 
   @Override
-  public void drawShapeWithCentre(float x,float y,Canvas canvas,Paint paint) {
-    canvas.drawCircle(x,y,circleRaduis,paint);
-    canvas.drawCircle(x,y,circleRaduis,getBorderPaint());
+  public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
+    float r = circleRaduis * pressure;
+    canvas.drawCircle(x,y,r,paint);
+    canvas.drawCircle(x,y,r,getBorderPaint());
   }
 
   @Override

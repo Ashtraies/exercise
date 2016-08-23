@@ -70,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
     currSelected.setColor(selectedColor);
     currSelected.invalidate();
     canvas.setShape(shape);
-    if(selectedColor == 0) {
+    if (selectedColor == 0) {
       Toast.makeText(this,getResources().getString(R.string.main_tips_2),Toast.LENGTH_SHORT).show();
     }
   }

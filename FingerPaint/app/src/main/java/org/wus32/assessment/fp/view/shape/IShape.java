@@ -26,7 +26,7 @@ public interface IShape {
    * @param canvas draw on which canvas
    * @param paint  use which paint
    */
-  void drawShapeWithCentre(float x,float y,Canvas canvas,Paint paint);
+  void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint);
 
   /**
    * get current type of shape
