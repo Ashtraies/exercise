@@ -10,14 +10,12 @@ package org.wus32.assessment.fp.view.shape;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.util.AttributeSet;
 
 /**
- * Finger Paint
- * <p/>
+ * Draw triangle.
  * Created by Wu Shuang on 2016/8/16.
  */
 public class Triangle extends AbstractShape {
@@ -44,8 +42,10 @@ public class Triangle extends AbstractShape {
   @Override
   public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
     float l = triangleLength * pressure;
+    //Calculate the three points' coordinate of the triangle.
     float margin = (float)(Math.sqrt(3) / 6 * l);
     float high = (float)(Math.sqrt(3) / 2 * l);
+    //Use Path to draw the triangle.
     Path path = new Path();
     path.moveTo(x - l / 2,y + margin);
     path.lineTo(x,y - (high - margin));

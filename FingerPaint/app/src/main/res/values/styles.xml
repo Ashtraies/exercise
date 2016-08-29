@@ -20,7 +20,7 @@
 	</style>
 
 	<style name="CurrSelected" parent="@style/ColorRect">
-		<item name="android:visibility">gone</item>
+		<item name="android:visibility">invisible</item>
 		<item name="android:layout_below">@+id/main_text</item>
 		<item name="android:onClick">@null</item>
 	</style>

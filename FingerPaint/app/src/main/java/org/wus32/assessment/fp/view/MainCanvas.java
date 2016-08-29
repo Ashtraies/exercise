@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
+import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -11,50 +12,70 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import org.wus32.assessment.fp.R;
+import org.wus32.assessment.fp.activity.MainActivity;
 import org.wus32.assessment.fp.util.LogUtil;
 import org.wus32.assessment.fp.view.shape.IShape;
 
 /**
  * Finger Paint
- * a custom view,use as canvas
+ * A custom view,use as canvas
  * <p/>
- * Created by Wu Shuang on 2016/8/14.
+ * Created by Wu Shuang on 2016/8/17.
  */
 public class MainCanvas extends View {
 
-  private int w,h;
+  /**
+   * The width and height of this view.
+   */
+  private int w, h;
 
+  /**
+   * To fill in the shape with this color.
+   */
   private int shapeColor;
 
+  /**
+   * A custom bitmap to record users' draw.
+   */
   private Bitmap customBitmap;
 
+  /**
+   * A canvase which built by custom bitmap.
+   */
   private Canvas customCanvas;
 
+  /**
+   * A paint to draw.
+   */
   private Paint paint;
 
+  /**
+   * Which shape to draw.
+   */
   private IShape shape;
 
   public MainCanvas(Context context,AttributeSet attrs) {
     super(context,attrs);
+    //Initialize the paint.
     paint = new Paint();
     paint.setStyle(Paint.Style.FILL_AND_STROKE);
     paint.setStrokeWidth(context.getResources().getDimension(R.dimen.stroke_width));
-    paint.setColor(context.getResources().getColor(R.color.colorPrimary));
     paint.setAntiAlias(true);
   }
 
   @Override
   public boolean onTouchEvent(MotionEvent event) {
-    if(shape != null) {
-      LogUtil.log(this,event.getPressure() + "/" +event.getSize());
+    //Draw only when the users have chosen a shape and a color.
+    if (shape != null && shapeColor != 0) {
+      //Get the coordinate of the touch point.
       float touchX = event.getX();
       float touchY = event.getY();
-      //use custom canvas to draw
+      //Use custom canvas to draw.
       paint.setColor(shapeColor);
       shape.drawShapeWithCentre(touchX,touchY,event.getPressure(),customCanvas,paint);
-      //call onDraw to draw custom bitmap whitin circle
+      //Call onDraw to draw custom bitmap whitin circle.
       invalidate();
-      //return false is the same
+      //Return false is the same.
       return true;
     }
     return super.onTouchEvent(event);
@@ -63,8 +84,17 @@ public class MainCanvas extends View {
   @Override
   protected void onDraw(Canvas canvas) {
     super.onDraw(canvas);
-    //draw custom bitmap(canvas) on the top of default canvas
+    //Draw custom bitmap(canvas) on the top of default canvas
     canvas.drawBitmap(customBitmap,0,0,paint);
+  }
+
+  @Override
+  protected void onSizeChanged(int w,int h,int oldw,int oldh) {
+    this.w = w;
+    this.h = h;
+    //Call reset to return the initial state.
+    reset(w,h);
+    super.onSizeChanged(w,h,oldw,oldh);
   }
 
   /**
@@ -74,20 +104,28 @@ public class MainCanvas extends View {
    * @param h height of new canvas
    */
   public void reset(int w,int h) {
-    //create a bitmap as large as the screen (and transparent?)
+    //Create a bitmap as large as the screen (and transparent?).
     customBitmap = Bitmap.createBitmap(w,h,Bitmap.Config.ARGB_8888);
-    //use this bitmap to creat a canvas
+    //Use this bitmap to creat a canvas.
     customCanvas = new Canvas(customBitmap);
+    //Draw a white backgroun for this canvas.
+    customCanvas.drawColor(Color.WHITE);
     invalidate();
   }
 
-  @Override
-  protected void onSizeChanged(int w,int h,int oldw,int oldh) {
-    this.w = w;
-    this.h = h;
-    Log.e("FP",w + "/" + h);
-    reset(w,h);
-    super.onSizeChanged(w,h,oldw,oldh);
+  /**
+   * Zoom in our out current draw.
+   * @param scale
+   */
+  public void zoom(float scale) {
+    Matrix matrix = new Matrix();
+    matrix.postScale(scale,scale);
+    customBitmap = Bitmap.createBitmap(customBitmap,0,0,
+            customBitmap.getWidth(),
+            customBitmap.getHeight(),matrix,true);
+    //Use this bitmap to creat a new canvas.
+    customCanvas = new Canvas(customBitmap);
+    invalidate();
   }
 
   public int getW() {
@@ -104,6 +142,10 @@ public class MainCanvas extends View {
 
   public void setShapeColor(int shapeColor) {
     this.shapeColor = shapeColor;
+  }
+
+  public Bitmap getCustomBitmap() {
+    return customBitmap;
   }
 
 }

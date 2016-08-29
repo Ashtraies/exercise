@@ -13,4 +13,7 @@
 	<string name="main_curr_selected">Current</string>
 	<string name="main_tips_1">Please choose a shape first.</string>
 	<string name="main_tips_2">Now please choose a color.</string>
+	<!--storage-->
+	<string name="main_storage_success">Storage bitmap success</string>
+	<string name="main_storage_failed">Storage bitmap failed.Please something.</string>
 </resources>

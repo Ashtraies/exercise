@@ -12,11 +12,16 @@ import android.util.Log;
 
 /**
  * Finger Paint
- * <p/>
+ * A util for logging.
  * Created by Wu Shuang on 2016/8/15.
  */
 public class LogUtil {
 
+  /**
+   * Log
+   * @param context
+   * @param content
+   */
   @SuppressWarnings("unused")
   public static void log(Object context,Object content) {
     String tag = "FP";

@@ -15,7 +15,6 @@ import android.util.AttributeSet;
 
 /**
  * Draw square
- * <p/>
  * Created by Wu Shuang on 2016/8/15.
  */
 public class Square extends AbstractShape {
@@ -37,6 +36,7 @@ public class Square extends AbstractShape {
   @Override
   public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
     float l = squareLength * pressure;
+    //Calculate the coordinate of the four points of the square.
     canvas.drawRect(x - l / 2,
             y - l / 2,
             x + l / 2,

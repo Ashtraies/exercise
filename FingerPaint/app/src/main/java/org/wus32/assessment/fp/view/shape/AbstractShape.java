@@ -20,12 +20,12 @@ import org.wus32.assessment.fp.util.LogUtil;
 public abstract class AbstractShape extends View implements IShape {
 
   /**
-   * Paint
+   * Paint to draw the shape.
    */
   protected Paint paint;
 
   /**
-   * Paint
+   * Paint to draw the border of the shape.
    */
   protected Paint borderPaint;
 
@@ -49,22 +49,25 @@ public abstract class AbstractShape extends View implements IShape {
    */
   float offset;
 
+  /**
+   * With which color to draw shapes.
+   */
   int color;
 
   public AbstractShape(Context context,AttributeSet attrs) {
     super(context,attrs);
     initSpecification(context);
-    //Initialize paint
+    //Initialize shape paint
     paint = new Paint();
     paint.setStyle(Paint.Style.STROKE);
     paint.setStrokeWidth(strokeWidth);
     paint.setAntiAlias(true);
+    //Initialize border paint
     borderPaint = new Paint();
     borderPaint.setAntiAlias(true);
     borderPaint.setStyle(Paint.Style.STROKE);
     borderPaint.setStrokeWidth(strokeWidth);
     borderPaint.setColor(Color.BLACK);
-
   }
 
   @Override
@@ -78,7 +81,7 @@ public abstract class AbstractShape extends View implements IShape {
   }
 
   /**
-   * Read res xml to get specification through
+   * Read res xml to get specification.
    *
    * @param context use to get Resources object
    * @see Resources
@@ -92,12 +95,9 @@ public abstract class AbstractShape extends View implements IShape {
     offset = res.getDimension(R.dimen.child_layout_margin);
   }
 
-  Paint getBorderPaint() {
-    return borderPaint;
-  }
-
   @Override
   protected void onSizeChanged(int w,int h,int oldw,int oldh) {
+    //Record the width and height of this view.
     this.w = w;
     this.h = h;
     super.onSizeChanged(w,h,oldw,oldh);
@@ -116,5 +116,13 @@ public abstract class AbstractShape extends View implements IShape {
   @Override
   public void setVisibility(int visibility) {
     super.setVisibility(visibility);
+  }
+
+  /**
+   * Get the border paint.
+   * @return border paint
+   */
+  Paint getBorderPaint() {
+    return borderPaint;
   }
 }

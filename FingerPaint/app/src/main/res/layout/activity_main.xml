@@ -27,6 +27,27 @@
 	<org.wus32.assessment.fp.view.shape.Triangle
 		android:id="@+id/main_triangle"
 		style="@style/CurrSelected"/>
+	<LinearLayout
+		android:orientation="horizontal"
+		android:layout_width="@dimen/main_palette_w"
+		android:layout_height="wrap_content"
+		android:layout_below="@id/main_square">
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/main_square"
+			android:text="+"
+			android:layout_weight="1"
+			android:onClick="zoomIn"/>
+
+		<Button
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_below="@+id/main_square"
+			android:text="-"
+			android:layout_weight="1"
+			android:onClick="zoomOut"/>
+	</LinearLayout>
 	<org.wus32.assessment.fp.view.MainCanvas
 		android:id="@+id/main_canvas"
 		android:layout_width="match_parent"

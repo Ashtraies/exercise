@@ -16,7 +16,7 @@ import android.util.AttributeSet;
 
 /**
  * Finger Paint
- * <p/>
+ * Shpae of circle.
  * Created by Wu Shuang on 2016/8/16.
  */
 public class Circle extends AbstractShape{
@@ -38,6 +38,7 @@ public class Circle extends AbstractShape{
   @Override
   public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
     float r = circleRaduis * pressure;
+    //Draw shape and border.
     canvas.drawCircle(x,y,r,paint);
     canvas.drawCircle(x,y,r,getBorderPaint());
   }
