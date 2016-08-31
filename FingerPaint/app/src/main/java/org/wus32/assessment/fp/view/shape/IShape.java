@@ -22,10 +22,11 @@ public interface IShape {
    * @param x      The x coordinate of the shape's central point.
    * @param y      The y coordinate of the shape's central point.
    * @param pressure The pressure of users' touch.
+   * @param scale Current scale.
    * @param canvas Draw on which canvas.
    * @param paint  Use which paint.
    */
-  void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint);
+  void drawShapeWithCentre(float x,float y,float pressure,float scale,Canvas canvas,Paint paint);
 
   /**
    * Get current type of shape.

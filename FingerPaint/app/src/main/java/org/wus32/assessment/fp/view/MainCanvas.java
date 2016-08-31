@@ -7,13 +7,10 @@ import android.graphics.Color;
 import android.graphics.Matrix;
 import android.graphics.Paint;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 
 import org.wus32.assessment.fp.R;
-import org.wus32.assessment.fp.activity.MainActivity;
-import org.wus32.assessment.fp.util.LogUtil;
 import org.wus32.assessment.fp.view.shape.IShape;
 
 /**
@@ -54,6 +51,11 @@ public class MainCanvas extends View {
    */
   private IShape shape;
 
+  /**
+   * Current scale.
+   */
+  private float scale = 1.0f;
+
   public MainCanvas(Context context,AttributeSet attrs) {
     super(context,attrs);
     //Initialize the paint.
@@ -72,7 +74,7 @@ public class MainCanvas extends View {
       float touchY = event.getY();
       //Use custom canvas to draw.
       paint.setColor(shapeColor);
-      shape.drawShapeWithCentre(touchX,touchY,event.getPressure(),customCanvas,paint);
+      shape.drawShapeWithCentre(touchX,touchY,event.getPressure(),scale,customCanvas,paint);
       //Call onDraw to draw custom bitmap whitin circle.
       invalidate();
       //Return false is the same.
@@ -118,6 +120,7 @@ public class MainCanvas extends View {
    * @param scale
    */
   public void zoom(float scale) {
+    this.scale = scale;
     Matrix matrix = new Matrix();
     matrix.postScale(scale,scale);
     customBitmap = Bitmap.createBitmap(customBitmap,0,0,

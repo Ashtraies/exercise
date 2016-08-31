@@ -40,8 +40,9 @@ public class Triangle extends AbstractShape {
   }
 
   @Override
-  public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
-    float l = triangleLength * pressure;
+  public void drawShapeWithCentre(float x,float y,float pressure,float scale,Canvas canvas,Paint paint) {
+    //Adjust the real length.
+    float l = triangleLength * pressure * scale;
     //Calculate the three points' coordinate of the triangle.
     float margin = (float)(Math.sqrt(3) / 6 * l);
     float high = (float)(Math.sqrt(3) / 2 * l);

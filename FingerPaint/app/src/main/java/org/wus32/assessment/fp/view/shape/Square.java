@@ -34,8 +34,9 @@ public class Square extends AbstractShape {
   }
 
   @Override
-  public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
-    float l = squareLength * pressure;
+  public void drawShapeWithCentre(float x,float y,float pressure,float scale,Canvas canvas,Paint paint) {
+    //Adjust the real length.
+    float l = squareLength * pressure * scale;
     //Calculate the coordinate of the four points of the square.
     canvas.drawRect(x - l / 2,
             y - l / 2,

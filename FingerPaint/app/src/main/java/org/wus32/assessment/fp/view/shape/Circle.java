@@ -10,7 +10,6 @@ package org.wus32.assessment.fp.view.shape;
 
 import android.content.Context;
 import android.graphics.Canvas;
-import android.graphics.Color;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 
@@ -36,8 +35,9 @@ public class Circle extends AbstractShape{
   }
 
   @Override
-  public void drawShapeWithCentre(float x,float y,float pressure,Canvas canvas,Paint paint) {
-    float r = circleRaduis * pressure;
+  public void drawShapeWithCentre(float x,float y,float pressure,float scale,Canvas canvas,Paint paint) {
+    //Adjust the real radius.
+    float r = circleRaduis * pressure * scale;
     //Draw shape and border.
     canvas.drawCircle(x,y,r,paint);
     canvas.drawCircle(x,y,r,getBorderPaint());
